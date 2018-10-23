@@ -2,18 +2,23 @@ from bs4 import BeautifulSoup
 from requests import get as _get
 from selenium import webdriver
 from os import getcwd
+from random import randint
 
 url = 'https://www.amazon.com/gp/goldbox'
 options = webdriver.ChromeOptions()
 options.set_headless()
 
 
-def scrape_data():
-    # _html = _get(url)
-    # soup = BeautifulSoup(_html.text, 'html.parser')
-    # blog_posts = soup.find('ul', class_='blog-widget-list').findAll('li')
-    # return blog_posts
-    driver = webdriver.Chrome(getcwd() + '/chromedriver', chrome_options=options)
+def create_driver():
+    return webdriver.Chrome(getcwd() + '/chromedriver', chrome_options=options)
+
+
+def scrape_product_review():
+    random_product = get_random_product()
+
+
+def get_random_product():
+    driver = create_driver()
     driver.get(url)
 
 
