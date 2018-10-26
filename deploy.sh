@@ -9,4 +9,6 @@ echo 'Running deploy scripts for Ceefive bot!'
 pip install pipenv
 pipenv install
 
-exit 0
+# starting the bot 😎
+echo '😂 💩 😂 😎 😜 ........ 🧐 🤓 😏'
+python cron.py
