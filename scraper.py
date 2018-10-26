@@ -53,7 +53,7 @@ def get_product_details(driver, product_link):
     try:
         driver.get(product_link)
         soup = BeautifulSoup(driver.page_source, 'html.parser')
-        product_title = soup.find('span', {'id': 'productTitle'}).text.replace('\n', '').replace(" ", "") or ''
+        product_title = soup.find('span', {'id': 'productTitle'}).text.replace('\n', '').strip() or ''
         product_image_url = soup.find('img', {'id': 'landingImage'})['src']
         product_reviews = soup.select('span.a-size-base.review-text')
         random_product_review = pick_random_item(product_reviews)

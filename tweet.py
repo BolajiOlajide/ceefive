@@ -106,3 +106,5 @@ def tweet_product_review(review_text, title_status_id):
             # import pdb; pdb.set_trace()
             recurring_status_id = response._json.get('id')
         return recurring_status_id
+    except:
+        print('error tweeting product review')
