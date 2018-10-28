@@ -1,9 +1,12 @@
 import schedule
 import time
 
+from tweet import post_tweet
+
 
 def job():
     print("I'm working...")
+    post_tweet()
 
 
 schedule.every(1).seconds.do(job)
@@ -11,6 +14,8 @@ schedule.every(1).seconds.do(job)
 # schedule.every().day.at("10:30").do(job)
 # schedule.every().monday.do(job)
 # schedule.every().wednesday.at("13:15").do(job)
+
+print('Legggooooo!!!! 💩💩💩💩💩💩')
 
 while True:
     try:
