@@ -15,6 +15,7 @@ python-dotenv = "*"
 selenium = "*"
 schedule = "*"
 flask = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"
