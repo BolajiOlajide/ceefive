@@ -14,6 +14,7 @@ python-dotenv = "*"
 "bs4" = "*"
 selenium = "*"
 schedule = "*"
+flask = "*"
 
 [requires]
 python_version = "3.6"
