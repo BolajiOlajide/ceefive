@@ -1,11 +1,19 @@
+from os import getcwd, path, getenv
+from random import randint
+
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from os import getcwd
-from random import randint
+from dotenv import load_dotenv
+
 
 url = 'https://www.amazon.com/gp/goldbox'
 options = webdriver.ChromeOptions()
 options.set_headless()
+
+dotenv_path = path.join(path.dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+CHROMEDRIVER = getenv('CHROMEDRIVER_FILE_NAME', 'chromedriver')
 
 
 def create_driver():

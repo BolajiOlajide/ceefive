@@ -1,7 +1,6 @@
-from os import getenv, path, listdir, chdir, getcwd
+from os import getenv, path, chdir
 from random import choice
 import string
-import time
 
 from dotenv import load_dotenv
 from requests import get as _get
@@ -90,7 +89,7 @@ def grab_image(product_image_url):
 
 
 def split_text(s, count):
-     return [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]
+    return [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]
 
 
 def tweet_product_review(review_text, title_status_id):
