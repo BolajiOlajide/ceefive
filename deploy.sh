@@ -13,4 +13,4 @@ echo 'Running deploy scripts for Ceefive bot!'
 # starting the bot 😎
 echo '😂 💩 😂 😎 😜 ........ 🧐 🤓 😏'
 # python cron.py
-gunicorn -w 1 -b 0.0.0.0 cron:app -c main.py
+gunicorn -w 1 -b 0.0.0.0 cron:app

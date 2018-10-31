@@ -72,7 +72,7 @@ def tweet_product_title_image(product_title, product_image_url):
 
 
 def generate_random_string():
-    chars=string.ascii_uppercase + string.digits
+    chars = string.ascii_uppercase + string.digits
     return ''.join(choice(chars) for _ in range(11))
 
 
