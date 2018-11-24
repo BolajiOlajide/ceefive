@@ -1,1 +1,1 @@
-web: ./deploy.sh
+worker: python main.py

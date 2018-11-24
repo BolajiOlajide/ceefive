@@ -42,7 +42,8 @@ def pick_random_item(items):
 
 def get_random_product_link(driver):
     """
-    the method returns the link of a random product from today's deals on Amazon
+    the method returns the link of a random product from today's
+    deals on Amazon
     """
     try:
         driver.get(url)
@@ -53,7 +54,7 @@ def get_random_product_link(driver):
         if not random_product:
             return None
         return random_product.find('a', id="dealTitle")['href'] or None
-    except:
+    except:  # noqa: E722
         return None
 
 
@@ -72,5 +73,5 @@ def get_product_details(driver, product_link):
             'random_review_text': random_review_text,
             'product_link': product_link
         }
-    except:
+    except:  # noqa: #722
         return None

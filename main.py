@@ -49,12 +49,12 @@ def start_job():
             exit()
 
 
-# if __name__ == '__main__':
-#     start_job()
-
-def worker_exit(server, worker):
-    print('Bye bye! 😣 😣 😣 😣')
-
-
-def post_worker_init(server):
+if __name__ == '__main__':
     start_job()
+
+# def worker_exit(server, worker):
+#     print('Bye bye! 😣 😣 😣 😣')
+
+
+# def post_worker_init(server):
+#     start_job()
