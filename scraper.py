@@ -14,10 +14,12 @@ dotenv_path = path.join(path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
 CHROMEDRIVER = getenv('CHROMEDRIVER_FILE_NAME', 'chromedriver')
+# THis is an alias for Chrome Driver Path (CDP)
+CDP = '/{}'.format(CHROMEDRIVER)
 
 
 def create_driver():
-    return webdriver.Chrome(getcwd() + '/chromedriver', chrome_options=options)
+    return webdriver.Chrome(getcwd() + CDP, chrome_options=options)
 
 
 def scrape_product_review():
