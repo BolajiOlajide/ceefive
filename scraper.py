@@ -9,6 +9,10 @@ from dotenv import load_dotenv
 url = 'https://www.amazon.com/gp/goldbox'
 options = webdriver.ChromeOptions()
 options.set_headless()
+options.binary_location = '.apt/usr/bin/google-chrome-stable'
+options.add_argument('--disable-gpu')
+options.add_argument('--no-sandbox')
+options.add_argument('headless')
 
 dotenv_path = path.join(path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -16,9 +20,13 @@ load_dotenv(dotenv_path)
 CHROMEDRIVER = getenv('CHROMEDRIVER_FILE_NAME', 'chromedriver')
 # THis is an alias for Chrome Driver Path (CDP)
 CDP = '/{}'.format(CHROMEDRIVER)
+ENVIRONMENT = getenv('ENVIRONMENT', '')
 
 
 def create_driver():
+    if ENVIRONMENT == 'HEROKU':
+        return webdriver.Chrome(
+            chrome_options=options)
     return webdriver.Chrome(getcwd() + CDP, chrome_options=options)
 
 
@@ -64,11 +72,13 @@ def get_product_details(driver, product_link):
     try:
         driver.get(product_link)
         soup = BeautifulSoup(driver.page_source, 'html.parser')
-        product_title = soup.find('span', {'id': 'productTitle'}).text.replace('\n', '').strip() or ''
+        product_title = soup.find('span', {'id': 'productTitle'}).text.replace(
+            '\n', '').strip() or ''
         product_image_url = soup.find('img', {'id': 'landingImage'})['src']
         product_reviews = soup.select('span.a-size-base.review-text')
         random_product_review = pick_random_item(product_reviews)
-        random_review_text = random_product_review.find('div', class_="a-expander-content").text or ''
+        random_review_text = random_product_review.find(
+            'div', class_="a-expander-content").text or ''
         return {
             'product_title': product_title,
             'product_image_url': product_image_url,
