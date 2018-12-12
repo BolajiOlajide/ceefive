@@ -39,19 +39,22 @@ def post_tweet():
         # tweet the product title and image
         print('tweeting title \n\n')
         formatted_title = 'TITLE: \n{}'.format(product_title)
-        response = tweet_product_title_image(formatted_title, product_image_url)
+        response = tweet_product_title_image(
+            formatted_title, product_image_url)
         title_response_status_id = response._json.get('id')
 
         # tweet the review
         print('tweeting review \n\n')
         formatted_review_text = 'REVIEW: \n{}'.format(random_review_text)
         print(formatted_review_text)
-        review_response_id = tweet_product_review(formatted_review_text, title_response_status_id)
+        review_response_id = tweet_product_review(
+            formatted_review_text, title_response_status_id)
 
         # tweet the product link
         print('tweeting link \n\n')
         formatted_product_link = 'LINK: \n{}'.format(product_link)
-        twitter.update_status(formatted_product_link, in_reply_to_status_id=review_response_id)
+        twitter.update_status(
+            formatted_product_link, in_reply_to_status_id=review_response_id)
 
         print('Done tweeting this product! \n\n')
         return False
@@ -89,7 +92,7 @@ def grab_image(product_image_url):
 
 
 def split_text(s, count):
-    return [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]
+    return [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]  # noqa: E501
 
 
 def tweet_product_review(review_text, title_status_id):
@@ -105,5 +108,5 @@ def tweet_product_review(review_text, title_status_id):
             # import pdb; pdb.set_trace()
             recurring_status_id = response._json.get('id')
         return recurring_status_id
-    except:
+    except:  # noqa: E722
         print('error tweeting product review')
