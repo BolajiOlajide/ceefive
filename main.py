@@ -50,13 +50,6 @@ def start_job():
 
 
 if __name__ == '__main__':
-    # https://stackoverflow.com/questions/31092538/heroku-node-js-error-r10-boot-timeout-web-process-failed-to-bind-to-port-w/31094668#31094668
-    # this helped with knowing I can just use heroku as a worker instead of setting the app as a web service
+    # https://stackoverflow.com/questions/31092538/heroku-node-js-error-r10-boot-timeout-web-process-failed-to-bind-to-port-w/31094668#31094668  # noqa: E501
+    # this helped with knowing I can just use heroku as a worker instead of setting the app as a web service # noqa: E501
     start_job()
-
-# def worker_exit(server, worker):
-#     print('Bye bye! 😣 😣 😣 😣')
-
-
-# def post_worker_init(server):
-#     start_job()
