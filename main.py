@@ -34,7 +34,7 @@ def job():
 
 # runInParallel(jobA, jobB)
 
-schedule.every(3000).seconds.do(job)
+schedule.every(20000).seconds.do(job)
 
 
 def start_job():
@@ -43,7 +43,7 @@ def start_job():
             print('starting work')
             schedule.run_pending()
             print('kdkdlsdl')
-            sleep(3600)
+            sleep(20000)
         except KeyboardInterrupt:
             print('The user stopped my operation')
             exit()
